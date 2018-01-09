@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':mockAnnotations')
+    implementation deps.squareup.javapoet
+    implementation deps.auto.common
+    compileOnly deps.auto.service
+
+    implementation files("${System.properties['java.home']}/../lib/tools.jar")
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"

@@ -28,4 +28,5 @@ public class SomeObject {
     public String string;
 
     public Bitmap mBitmap;
+    public SomeObject mSomeObject;
 }
