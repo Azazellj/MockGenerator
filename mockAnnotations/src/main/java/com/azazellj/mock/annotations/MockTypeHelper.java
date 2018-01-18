@@ -10,4 +10,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MockTypeHelper {
     Class[] types() default {};
+
+    boolean initNeeded() default false;
 }

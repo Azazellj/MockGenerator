@@ -13,6 +13,7 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
+import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.MirroredTypesException;
 import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
@@ -61,7 +62,7 @@ public class MockCompilerProcessor extends AbstractProcessor {
     private void generateMockClasses() {
         try {
             for (MockAnnotatedClass mockClass : mockClasses.values()) {
-                MockGenerator.generateClass(mFiler, mMessager, mockClass);
+                MockGenerator.generateClass(mElementUtils,mTypes,mFiler, mMessager, mockClass);
             }
         } catch (IOException ioEx) {
             error(null, ioEx.toString());

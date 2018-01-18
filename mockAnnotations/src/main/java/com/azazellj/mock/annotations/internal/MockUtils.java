@@ -2,6 +2,8 @@ package com.azazellj.mock.annotations.internal;
 
 import com.azazellj.mock.annotations.MockTypeHelper;
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.UUID;
 
 public class MockUtils {
@@ -53,5 +55,17 @@ public class MockUtils {
     @MockTypeHelper(types = String.class)
     public static String randomString() {
         return UUID.randomUUID().toString();
+    }
+
+    @MockTypeHelper(types = Collection.class, initNeeded = true)
+    public static <T, C extends Collection<T>> C randomCollection(C collection, T randomValue) {
+        collection.add(randomValue);
+        return collection;
+    }
+
+    @MockTypeHelper(types = Map.class, initNeeded = true)
+    public static <K, V, M extends Map<K, V>> M randomMap(M map, K key, V value) {
+        map.put(key, value);
+        return map;
     }
 }
