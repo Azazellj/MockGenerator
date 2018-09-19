@@ -1,1 +1,1 @@
-include ':app', ':mockGenerator', ':mockAnnotations', ':mockCompiler'
+include ':app', ':mockGenerator', ':mockAnnotations', ':mockAnnotations-kt', ':mockCompiler', ':mockCompiler-kt'
